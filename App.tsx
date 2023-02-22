@@ -5,14 +5,29 @@
  * @format
  */
 
-import React from 'react';
-import {Text} from 'react-native';
+import React, {useState} from 'react';
+import {Text, Button, View} from 'react-native';
 
 
 function App(): JSX.Element {
 
+  const [clicks, setClicks] = useState(0)
+
   return (
-    <Text> Hola! </Text>
+    <View
+      style={{
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}>
+      <Text> Clicks: {clicks} </Text>
+      <Button
+        onPress={()=> {
+          setClicks(clicks + 1);
+        }}
+        title="Click me!"
+      />
+    </View>
   );
 }
 
